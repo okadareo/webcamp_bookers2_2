@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookers2</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% if user_signed_in? %>
+      <li><%= link_to "Home", class: "fas fa-home" %></li>
+      <li><%= link_to "Users", class: "fas fa-bell" %></li>
+      <li><%= link_to "Books", class: "fas fa-atlas" %></li>
+      <li><%= link_to "Log Out", destroy_user_session_path, class: "fas fa-arrow-alt-circle-right", method: :delete %></li>
+    <% else %>
+      <li><%= link_to "Bookers", root_path, class: "fas fa-home" %></li>
+      <li><%= link_to "Home", root_path, class: "fas fa-home" %></li>
+      <li><%= link_to "About", home_about_path, class: "fas fa-at" %></li>
+      <li><%= link_to "Sign Up", new_user_registration_path, class: "fas fa-user" %></li>
+      <li><%= link_to "Log In", new_user_session_path, class: "fas fa-arrow-alt-circle-right" %></li>
+    <% end %>
+    <%= yield %>
+    <p>CopyRight Infratop.inc</p>
+  </body>
+</html>
