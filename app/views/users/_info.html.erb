@@ -1,3 +1,4 @@
+<h1>User info</h1>
 <table>
   <tr>
     <td><%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: "jpg" %></td>
@@ -10,5 +11,5 @@
     <td>introduction</td>
     <td><%= user.introduction %></td>
   </tr>
-  <th><%= link_to "編集", edit_user_path %></th>
+  <th><%= link_to "編集", edit_user_path(user) %></th>
 </table>
