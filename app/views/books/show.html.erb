@@ -8,11 +8,13 @@
   <tr>
     <td>
       <%= attachment_image_tag @book.user, :profile_image, :fill ,60 ,60 %><br />
-      <%= link_to @book.user.name, user_path %>
+      <%= link_to @book.user.name, user_path(@book.user) %>
     </td>
     <td><%= link_to @book.title, book_path %></td>
     <td><%= @book.body %></td>
+    <% if @book.user == current_user %>
     <td><%= link_to "Edit", edit_book_path %></td>
-    <td><%= link_to "Destroy", books_path(@book), method: :delete, "data-confirm" => "本当に削除しますか" %></td>
+    <td><%= link_to "Destroy", book_path(@book), method: :delete, "data-confirm" => "本当に削除しますか" %></td>
+    <% end %>
   </tr>
 </table>

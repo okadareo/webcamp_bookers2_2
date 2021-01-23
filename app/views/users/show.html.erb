@@ -1,3 +1,5 @@
 <%= render 'info', user: @user %>
 <%= render 'books/form', book: @book %>
-<%= render 'books/index', books: @books %> 
+<% if current_user.id != @book.user_id %>
+<%= render 'books/contents', books: @books %>
+<% end %>
